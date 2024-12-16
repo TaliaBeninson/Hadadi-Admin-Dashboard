@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>לוח בקרה למנהל</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <h1>לוח אישורים למנהל</h1>
+
+  <div class="top-bar">
+    <button class="buttonTop" onclick="showSection('usersSection')">משתמשים</button>
+    <button class="buttonTop" onclick="showSection('storesSection')">חנויות</button>
+    <button class="buttonTop" onclick="showSection('productsSection')">מוצרים</button>
+    <button class="buttonTop" onclick="showSection('categoriesSection')">ניהול קטגוריות</button> 
+  </div>
+
+  <button class="random-button" onclick="window.location.href='transactions.html'">צפייה בעסקאות</button>
+
+  <section id="usersSection" class="dashboard-section">
+    <h2>משתמשים ממתינים לאישור</h2>
+    <div class="table-container">
+      <table id="usersTable">
+        <thead>
+          <tr>
+            <th>תמונה</th>
+            <th>שם</th>
+            <th>אימייל</th>
+            <th>טלפון</th>
+            <th>תעודת זהות</th>
+            <th>תחומי עניין</th>
+            <th>קישורי מדיה חברתית</th>
+            <th>סטטוס</th>
+            <th>פעולות</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="noUsersRow" style="display: none;">
+            <td colspan="9">אין משתמשים ממתינים לאישור</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="storesSection" class="dashboard-section">
+    <h2>חנויות ממתינות לאישור</h2>
+    <div class="table-container">
+      <table id="storesTable">
+        <thead>
+          <tr>
+            <th>שם חנות</th>
+            <th>מספר עוסק מורשה</th>
+            <th>טלפון</th>
+            <th>וואטסאפ</th>
+            <th>אימייל</th>
+            <th>כתובת</th>
+            <th>שם בנק</th>
+            <th>מספר סניף</th>
+            <th>מספר חשבון</th>
+            <th>קישור לחנות</th>
+            <th>מידע על המשתמש</th>
+            <th>סטטוס</th>
+            <th>פעולות</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="noStoresRow" style="display: none;">
+            <td colspan="13">אין חנויות ממתינות לאישור</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="productsSection" class="dashboard-section">
+    <h2>מוצרים ממתינים לאישור</h2>
+    <div class="table-container">
+      <table id="productsTable">
+        <thead>
+          <tr>
+            <th>קטגוריה</th>
+            <th>תמונה</th>
+            <th>שם</th>
+            <th>תשלומים</th>
+            <th>מחיר</th>
+            <th>מחיר מינימלי</th>
+            <th>מפרט</th>
+            <th>אחריות</th>
+            <th>שנה</th>
+            <th>כמות בסטוק</th>
+            <th>מקסימום רכישות ללקוח</th>
+            <th>מידע על חנות</th>
+            <th>פעולות</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="noProductsRow" style="display: none;">
+            <td colspan="12">אין מוצרים ממתינים לאישור</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="categoriesSection" class="dashboard-section">
+    <h2>ניהול קטגוריות</h2>
+   
+  <button class="add-category-btn" id="openModalBtn">הוסף קטגוריה</button>
+  <div class="table-container">
+    <table id="categoriesTable">
+        <thead>
+            <tr>
+                <th>שם קטגוריה</th>
+                <th>שם קטגוריה באנגלית</th>
+                <th>ערבים</th>
+                <th>שעות</th>
+                <th>הנחה לפי אנשים באחוזים</th>
+                <th>הנחה לפי זמן באחוזים</th>
+                <th>כמות שעות נוספות להפעלת ההנחה</th>
+                <th>כמות ערבים נוספים להפעלת ההנחה</th>
+                <th>פעולות</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<div id="categoryModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModalBtn">&times;</span>
+        <h3>הוסף / ערוך קטגוריה</h3>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="categoryName">שם קטגוריה</label>
+                <input type="text" id="categoryName" placeholder="שם קטגוריה">
+            </div>
+            <div class="form-group">
+              <label for="categoryName">שם קטגוריה באנגלית</label>
+              <input type="text" id="categoryNameEn" placeholder="שם קטגוריה">
+          </div>
+            <div class="form-group">
+                <label for="guarantees">ערבים</label>
+                <input type="number" id="guarantees" placeholder="ערבים">
+            </div>
+            <div class="form-group">
+                <label for="hours">שעות</label>
+                <input type="number" id="hours" placeholder="שעות">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="peopleDiscount">הנחה לפי אנשים באחוזים</label>
+                <input type="number" id="peopleDiscount" placeholder="הנחה לפי אנשים">
+            </div>
+            <div class="form-group">
+                <label for="timeIncrement">כמות שעות נוספות להפעלת ההנחה</label>
+                <input type="number" id="timeIncrement" placeholder="הגדלת זמן">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="timeDiscount">הנחה לפי זמן באחוזים</label>
+                <input type="number" id="timeDiscount" placeholder="הנחה לפי זמן">
+            </div>
+            <div class="form-group">
+                <label for="guaranteeIncrement">כמות ערבים נוספים להפעלת ההנחה</label>
+                <input type="number" id="guaranteeIncrement" placeholder="הגדלת ערבים">
+            </div>
+        </div>
+
+        <button id="saveCategoryBtn">שמור קטגוריה</button>
+    </div>
+</div>
+
+</section>
+
+  </section>
+
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.dashboard-section').forEach(section => {
+        section.classList.remove('active');
+      });
+
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      showSection('usersSection');
+    });
+  </script>
+  
+  <script src="approval.js"></script>
+
+</body>
+
+</html>

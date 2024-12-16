@@ -1,0 +1,20 @@
+{
+  "name": "admin-dashboard-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dashboard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase": "^10.12.5",
+    "firebase-admin": "^12.3.1",
+    "mailer": "^0.6.7",
+    "nodemailer": "^6.9.14"
+  }
+}

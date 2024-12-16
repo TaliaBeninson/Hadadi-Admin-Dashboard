@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>דשבורד למשקיעים</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="dashboard.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+  <div class="container">
+
+    <div>
+      <h5> ממתינים לאישור</h5>
+      <canvas id="pendingEntitiesChart" onclick="goToApproval()"></canvas>
+    </div>
+
+    <div>
+      <h5>מספר משתמשים שאושרו בתאריך</h5>
+      <canvas id="newUsersChart"></canvas>
+    </div>
+
+    <div>
+      <h5> משתמשים הממשתתפים במשחק</h5>
+      <canvas id="usersPlayingChart"></canvas>
+    </div>
+
+    <div>
+      <h5 id="transactionsCount"></h5>
+      <button class="custom-button" onclick="location.href='/transactions'">הצג את כל העסקאות</button>
+    </div>
+
+    <div>
+      <canvas id="guaranteesMilestonesChart"></canvas>
+    </div>
+
+    <div>
+      <h5 id="totalProductsHeader">סהכ מוצרים במערכת</h5>
+      <h6>סוגי מוצרים הקיימים במערכת בחילוק לפי אחוזים</h6>
+      <canvas id="totalProductsByCategoryChart"></canvas>
+    </div>
+
+    <div>
+      <h5>מוצרים בעסקה לפי קטגוריה</h5>
+      <h6>אחוז המוצרים הקיימים בעסקאות</h6>
+      <canvas id="productsInTransactionByCategoryChart"></canvas>
+    </div>
+
+  </div>
+
+</body>
+</html>

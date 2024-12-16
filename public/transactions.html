@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>רשימת עסקאות</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <section class="dashboard-section">
+    <h1>רשימת עסקאות</h1>
+
+     <div class="search-filter-section">
+      <div class="global-search">
+        <input type="text" id="globalSearch" placeholder="חפש בכל התוכן..." oninput="filterTable()">
+      </div>
+
+      <div class="filters-row">
+        <input type="text" id="productFilter" placeholder="חפש לפי מוצר" oninput="filterTable()">
+        <input type="text" id="sellerFilter" placeholder="חפש לפי שם מוכר" oninput="filterTable()">
+        <select id="statusFilter" onchange="filterTable()">
+          <option value="">הצג הכל</option> 
+          <option value="הושלם">הושלם</option>
+          <option value="נותרו מתחת ערבויות">נותרו מתחת ל50% מהערבויות</option>
+          <option value="נותרו מעל ערבויות">נותרו מעל ל50% מהערבויות</option>
+
+        </select>        
+        <input type="date" id="dateFilter" onchange="filterTable()">
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table id="transactionsTable">
+        <thead>
+          <tr>
+            <th>שם קונה</th>
+            <th>שם ערב</th>
+            <th>שם מוצר</th>
+            <th>סכום ערבות</th>
+            <th onclick="toggleSort('date')">
+              תאריך רכישה
+              <i class="fas fa-sort"></i> 
+            </th>
+            <th onclick="toggleSort('status')">
+              סטטוס
+              <i class="fas fa-sort"></i> 
+            </th>
+            <th>שם מוכר</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="noTransactionsRow" style="display: none;">
+            <td colspan="7">אין עסקאות להצגה</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="transactions.js"></script>
+</body>
+</html>
